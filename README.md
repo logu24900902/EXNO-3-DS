@@ -168,35 +168,35 @@ sm.qqplot(df["Moderate Negative Skew"],line='45')
 plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/f0fb502c-d13e-4694-89db-590604691f3f)
+```
+sm.qqplot(np.reciprocal(df["Moderate Negative Skew"]),line='45')
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/7bfa189f-3672-4ddc-aa81-fecb1d702c9e)
+```
+from sklearn.preprocessing import QuantileTransformer
+qt = QuantileTransformer(output_distribution='normal',n_quantiles=891)
+df["Moderate Negative Skew"]=qt.fit_transform(df[["Moderate Negative Skew"]])
+sm.qqplot(df["Moderate Negative Skew"],line='45')
+plt.show()
+```
 
+![image](https://github.com/user-attachments/assets/a59c4272-6428-44fb-975f-320c8fb4384d)
+```
+df["Highly Negative Skew_1"]=qt.fit_transform(df[["Highly Negative Skew"]])
+sm.qqplot(df["Highly Negative Skew"],line='45')
+plt.show()
+```
 
+![image](https://github.com/user-attachments/assets/03d85458-5e6b-4bc2-bcc4-5cfeb19c29ab)
+```
+sm.qqplot(df["Highly Negative Skew_1"],line='45')
+plt.show()
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/81ea40e5-d256-48ea-a064-0a7f185ca38d)
 
 # RESULT:
-       # INCLUDE YOUR RESULT HERE
+      ##   Thus the process of Feature Encoding and Transformation has been successfully performed on the data and the output has been attached.
 
        
