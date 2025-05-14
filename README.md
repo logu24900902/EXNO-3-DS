@@ -54,9 +54,26 @@ df
 ```
 ![image](https://github.com/user-attachments/assets/7c0bb467-262d-42a6-b0e1-bb0fdaaca6cf)
 ```
-
-
-
+le=LabelEncoder()
+dfc=df.copy()
+dfc['ord_2']=le.fit_transform(dfc['ord_2'])
+dfc
+```
+![image](https://github.com/user-attachments/assets/6302779d-b0a3-44a9-8d63-d88e7e86bd67)
+```
+from sklearn.preprocessing import OneHotEncoder
+ohe=OneHotEncoder(sparse_output=False)
+df2=df.copy()
+```
+```
+enc=pd.DataFrame(ohe.fit_transform(df2[['nom_0']]))
+df2=pd.concat([df2,enc],axis=1)
+```
+```
+df2=pd.concat([df2,enc],axis=1)
+df2
+```
+![image](https://github.com/user-attachments/assets/aa7a4a1c-dee9-4f67-9ede-673f4e74cdc1)
 
 
 
