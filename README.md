@@ -25,13 +25,31 @@ We use this categorical data encoding technique when the features are nominal(do
 • Log Transformation
 • Reciprocal Transformation
 • Square Root Transformation
+
 • Square Transformation
   # 2. POWER TRANSFORMATION
 • Boxcox method
 • Yeojohnson method
 
 # CODING AND OUTPUT:
-       # INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS HERE
+```
+import pandas as pd
+df=pd.read_csv("/Encoding Data (2).csv")
+df
+```
+![image](https://github.com/user-attachments/assets/133cc105-1f9b-4a49-aa1a-a1173787c226)
+```
+from sklearn.preprocessing import LabelEncoder,OrdinalEncoder
+pm = ['Hot','Warm','Cold']
+```
+```
+e1=OrdinalEncoder(categories=[pm])
+```
+```
+e1.fit_transform(df[["ord_2"]])
+```
+![image](https://github.com/user-attachments/assets/b69a096c-a577-41a1-92f4-46b9c616e779)
+
 # RESULT:
        # INCLUDE YOUR RESULT HERE
 
