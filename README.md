@@ -48,6 +48,13 @@ e1=OrdinalEncoder(categories=[pm])
 e1.fit_transform(df[["ord_2"]])
 ```
 ![image](https://github.com/user-attachments/assets/3d164d7a-00d1-40f1-bc83-2b25bf5f7693)
+```
+df['bo2']=e1.fit_transform(df[["ord_2"]])
+df
+```
+![image](https://github.com/user-attachments/assets/7c0bb467-262d-42a6-b0e1-bb0fdaaca6cf)
+```
+
 
 
 
