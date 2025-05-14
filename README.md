@@ -74,6 +74,106 @@ df2=pd.concat([df2,enc],axis=1)
 df2
 ```
 ![image](https://github.com/user-attachments/assets/aa7a4a1c-dee9-4f67-9ede-673f4e74cdc1)
+```
+pd.get_dummies(df2,columns=["nom_0"])
+```
+![image](https://github.com/user-attachments/assets/49544770-62e8-44fc-9528-9737b3f42369)
+```
+pip install --upgrade category_encoders
+```
+![image](https://github.com/user-attachments/assets/5512a634-61fb-4242-830a-bdcca6e653e7)
+```
+from category_encoders import BinaryEncoder
+df=pd.read_csv("/data.csv")
+```
+```
+df
+```
+![image](https://github.com/user-attachments/assets/dc63488d-de4a-45de-9922-3f216f3e46eb)
+```
+be=BinaryEncoder()
+nd=be.fit_transform(df['Ord_2'])
+dfb=pd.concat([df,nd],axis=1)
+dfb1=df.copy()
+dfb
+```
+![image](https://github.com/user-attachments/assets/45eb9d9b-96c1-4090-894b-3a7a1beea9ae)
+```
+from category_encoders import TargetEncoder
+te=TargetEncoder()
+cc=df.copy()
+new=te.fit_transform(X=cc["City"],y=cc["Target"])
+cc=pd.concat([cc,new],axis=1)
+cc
+```
+![image](https://github.com/user-attachments/assets/ee16a935-50f4-43e1-8df4-297242e1f083)
+```
+import pandas as pd
+from scipy import stats
+import numpy as np
+```
+```
+df=pd.read_csv("/Data_to_Transform.csv")
+df
+```
+![image](https://github.com/user-attachments/assets/0a149b23-88d1-40a6-9609-4835ede10ed7)
+```
+df.skew()
+```
+![image](https://github.com/user-attachments/assets/5603e792-d5fd-4162-83d1-21d1162d0b50)
+```
+np.log(df["Highly Positive Skew"])
+```
+![image](https://github.com/user-attachments/assets/fe9de336-599f-4cab-aa7c-1c75e63c498f)
+```
+np.reciprocal(df["Moderate Positive Skew"])
+```
+![image](https://github.com/user-attachments/assets/99ad3f24-2717-48c5-848b-4ec01386b6cd)
+```
+np.sqrt(df["Highly Positive Skew"])
+```
+![image](https://github.com/user-attachments/assets/3b56d433-e49e-4cf2-ac7e-72a36ba97acd)
+```
+np.square(df["Highly Positive Skew"])
+```
+![image](https://github.com/user-attachments/assets/1ef1d81a-2d16-4abd-b743-04f047b7983f)
+```
+df["Highly Positive Skew_boxcox"],parameters=stats.boxcox(df["Highly Positive Skew"])
+df
+```
+![image](https://github.com/user-attachments/assets/014d73e6-b83f-4ac4-a9ed-ad905d9b11f3)
+```
+df["Moderate Negative Skew_yeojohnson"],parameters=stats.yeojohnson(df["Moderate Negative Skew"])
+df.skew()
+```
+![image](https://github.com/user-attachments/assets/fd022a60-bf01-4ff6-aea1-0679fe3a5c13)
+```
+df["Highly Negative Skew_yeohohnson"],parameter=stats.yeojohnson(df["Highly Negative Skew"])
+df.skew()
+```
+```
+from sklearn.preprocessing import QuantileTransformer
+qt=QuantileTransformer(output_distribution='normal')
+df["Modern Negative Skew_1"]=qt.fit_transform(df[["Moderate Negative Skew"]])
+df
+```
+![image](https://github.com/user-attachments/assets/255d889c-953b-4c05-997c-72ff6e86480c)
+```
+import seaborn as sns
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+```
+```
+sm.qqplot(df["Moderate Negative Skew"],line='45')
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/f0fb502c-d13e-4694-89db-590604691f3f)
+
+
+
+
+
+
 
 
 
